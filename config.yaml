@@ -1,0 +1,60 @@
+# Ergo Sum: AI Philosophy Digest — sources and settings.
+# Trim or extend freely; every entry is optional.
+
+name: "Ergo Sum: AI Philosophy Digest"
+window_days: 8          # slightly over a week so nothing slips between runs
+max_items_to_llm: 160   # cap on candidates sent to the model
+
+topic: >
+  Philosophy of AI and its human consequences: consciousness and moral status of AI systems,
+  alignment and ethics, human-AI collaboration and what it does to thinking and work, societal
+  and economic impact, epistemics and metaphysics of AI, and AI in medicine and medical education.
+  The reader is a physician who just read Ethan Mollick's Co-Intelligence and wants the
+  substantive arguments, not product launches, funding news, or benchmark hype.
+
+rss:
+  # --- Philosophy, consciousness, moral status
+  - {name: "Experience Machines (Robert Long)", url: "https://experiencemachines.substack.com/feed"}
+  - {name: "Programmable Mutter (Henry Farrell)", url: "https://www.programmablemutter.com/feed"}
+  - {name: "Astral Codex Ten", url: "https://www.astralcodexten.com/feed"}
+  # --- Alignment, safety, policy
+  - {name: "Zvi Mowshowitz", url: "https://thezvi.substack.com/feed"}
+  - {name: "Import AI", url: "https://importai.substack.com/feed"}
+  - {name: "LessWrong", url: "https://www.lesswrong.com/feed.xml"}
+  - {name: "Alignment Forum", url: "https://www.alignmentforum.org/feed.xml"}
+  - {name: "Hyperdimensional (Dean Ball)", url: "https://www.hyperdimensional.co/feed"}
+  - {name: "Second Thoughts", url: "https://secondthoughts.ai/feed"}
+  # --- Human-AI collaboration, society, economics
+  - {name: "One Useful Thing (Ethan Mollick)", url: "https://www.oneusefulthing.org/feed"}
+  - {name: "Exponential View", url: "https://www.exponentialview.co/feed"}
+  - {name: "Understanding AI", url: "https://www.understandingai.org/feed"}
+  - {name: "Marginal Revolution", url: "https://marginalrevolution.com/feed"}
+  - {name: "Noahpinion", url: "https://www.noahpinion.blog/feed"}
+  - {name: "Nonzero", url: "https://www.nonzero.org/feed"}
+  - {name: "Dwarkesh Podcast", url: "https://www.dwarkesh.com/feed"}
+  - {name: "AI Snake Oil", url: "https://aiguide.substack.com/feed"}
+  - {name: "Gary Marcus", url: "https://garymarcus.substack.com/feed"}
+  - {name: "Interconnects", url: "https://www.interconnects.ai/feed"}
+  # --- Medicine
+  - {name: "Ground Truths (Eric Topol)", url: "https://erictopol.substack.com/feed"}
+
+# Bluesky accounts to follow via their public RSS (no login needed). Add handles you like.
+bluesky_handles:
+  - emollick.bsky.social
+
+# Bluesky keyword search (needs BSKY_HANDLE + BSKY_APP_PASSWORD env vars; skipped if absent)
+bluesky_search:
+  min_likes: 15
+  queries:
+    - "AI consciousness"
+    - "AI moral status"
+    - "AI alignment philosophy"
+    - "AI medical education"
+
+pubmed_queries:
+  - '("artificial intelligence"[Title/Abstract] OR "large language model"[Title/Abstract]) AND "medical education"[Title/Abstract]'
+  - '("artificial intelligence"[Title/Abstract] OR "large language model"[Title/Abstract]) AND (ethics[Title/Abstract] OR "clinical reasoning"[Title/Abstract]) AND (physician[Title/Abstract] OR clinician[Title/Abstract])'
+
+arxiv_queries:
+  - 'all:"AI consciousness" OR all:"machine consciousness" OR all:"AI moral status" OR all:"AI welfare"'
+  - 'all:"human-AI collaboration" AND (cat:cs.CY OR cat:cs.HC)'
