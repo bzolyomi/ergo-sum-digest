@@ -17,3 +17,10 @@ and an email via Buttondown.
 - Repo variable `SEND_MODE`: leave unset for drafts; set to `now` to send automatically.
 
 Edit `config.yaml` to change sources and topic scope.
+
+## Running from a Mac instead of GitHub Actions
+Substack intermittently 403s GitHub's servers, so sends run from a Mac via launchd
+(login + Mondays 08:00 + every 4h; `scripts/run_if_due.py` only sends if >= 6 days since the last success).
+1. Create `~/.ergo-sum/env` (chmod 600) with `BUTTONDOWN_API_KEY=...` and optionally `BSKY_HANDLE`, `BSKY_APP_PASSWORD`.
+2. `bash scripts/install_launchd.sh`
+3. State: `~/.ergo-sum/last_send` (delete it to force the next run). Log: `~/.ergo-sum/run.log`.
