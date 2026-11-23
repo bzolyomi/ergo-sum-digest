@@ -299,8 +299,12 @@ def send_buttondown(subject, body, status):
     key = os.getenv("BUTTONDOWN_API_KEY")
     if not key:
         raise SystemExit("BUTTONDOWN_API_KEY not set")
+    headers = {"Authorization": f"Token {key}"}
+    if status == "now":
+        # Buttondown's safeguard: live sends need this header (required once per API key).
+        headers["X-Buttondown-Live-Dangerously"] = "true"
     r = requests.post("https://api.buttondown.com/v1/emails", timeout=TIMEOUT,
-                      headers={"Authorization": f"Token {key}"},
+                      headers=headers,
                       json={"subject": subject, "body": body,
                             "status": "draft" if status == "draft" else "about_to_send"})
     if not r.ok:
