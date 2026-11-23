@@ -29,7 +29,8 @@ import yaml
 
 ROOT = Path(__file__).parent
 CFG = yaml.safe_load((ROOT / "config.yaml").read_text())
-UA = {"User-Agent": "ergo-sum-digest/0.1 (personal newsletter; +https://github.com/bzolyomi/ergo-sum-digest)"}
+# Some Substack feeds 403 non-browser user-agents; override with FEED_UA if needed.
+UA = {"User-Agent": os.getenv("FEED_UA") or "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
 TIMEOUT = 20
 
 
