@@ -2,6 +2,9 @@
 # Trim or extend freely; every entry is optional.
 
 name: "Ergo Sum: AI Philosophy Digest"
+tagline: "an AI-powered digest about AI philosophy"
+model_id: "claude-sonnet-5-5"   # pinned so the signature is accurate
+model_label: "Sonnet 5.5"
 window_days: 8          # slightly over a week so nothing slips between runs
 max_items_to_llm: 160   # cap on candidates sent to the model
 
