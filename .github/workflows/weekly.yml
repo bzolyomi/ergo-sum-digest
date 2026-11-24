@@ -1,8 +1,7 @@
 name: Weekly digest
 
 on:
-  schedule:
-    - cron: "0 12 * * 1"   # Mondays 12:00 UTC
+  # No schedule: weekly sends run from the Mac (scripts/run_if_due.py) because Substack 403s Actions runners.
   workflow_dispatch:
     inputs:
       send:
@@ -33,8 +32,7 @@ jobs:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
-        # Scheduled runs use the SEND_MODE repo variable (default: draft until you flip it to "now").
-        run: python digest.py --send "${{ github.event.inputs.send || vars.SEND_MODE || 'draft' }}"
+        run: python digest.py --send "${{ github.event.inputs.send || 'draft' }}"
       - name: Commit archive
         run: |
           git config user.name "ergo-sum-bot"

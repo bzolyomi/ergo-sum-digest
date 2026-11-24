@@ -14,7 +14,7 @@ and an email via Buttondown.
 - `CLAUDE_CODE_OAUTH_TOKEN` — from `claude setup-token` (uses your Claude subscription)
 - `BUTTONDOWN_API_KEY` — Buttondown > Settings > API
 - `BSKY_HANDLE`, `BSKY_APP_PASSWORD` — optional; use a Bluesky *app password*, never the main password
-- Repo variable `SEND_MODE`: leave unset for drafts; set to `now` to send automatically.
+- The Actions workflow is manual-only (`workflow_dispatch`); the weekly schedule runs from the Mac (see below).
 
 Edit `config.yaml` to change sources and topic scope.
 
